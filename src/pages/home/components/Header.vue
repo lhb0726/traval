@@ -38,7 +38,7 @@ export default {
         margin-top: .12rem
         margin-left: .2rem
         margin-bottom : .12rem
-        hegiht: .64rem
+        height: .64rem
         color: #ccc
         padding-left: .2rem
 </style>
