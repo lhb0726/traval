@@ -2,7 +2,7 @@
     <div>
         <div class="recommend-title">热销推荐</div>
         <ul>
-            <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+            <li class="item border-bottom" v-for="item of list" :key="item.id">
                 <img :src="item.imgUrl"  class="item-img">
                 <div class="item-info">
                     <p class="item-title">{{item.title}}</p>
@@ -17,30 +17,8 @@
 <script>
 export default {
     name : 'homeRecommend',
-    data (){
-        return {
-            recommendList: [{
-                id:'001',
-                imgUrl: 'https://imgs.qunarzz.com/p/tts9/1905/e5/ae14cb05c5d23a02.png_256x144_00eba93d.png',
-                title: '北京出发一日游',
-                desc: '★不到长城非好汉，北京必去的景点！',
-            },{
-                id:'002',
-                imgUrl: 'https://imgs.qunarzz.com/p/tts9/1905/e5/ae14cb05c5d23a02.png_256x144_00eba93d.png',
-                title: '北京出发一日游',
-                desc: '★不到长城非好汉，北京必去的景点',
-            },{
-                id:'003',
-                imgUrl: 'https://imgs.qunarzz.com/p/tts9/1905/e5/ae14cb05c5d23a02.png_256x144_00eba93d.png',
-                title: '北京出发一日游',
-                desc: '★不到长城非好汉，北京必去的景点',
-            },{
-                id:'004',
-                imgUrl: 'https://imgs.qunarzz.com/p/tts9/1905/e5/ae14cb05c5d23a02.png_256x144_00eba93d.png',
-                title: '北京出发一日游',
-                desc: '★不到长城非好汉，北京必去的景点',
-            }]
-        }
+    props: {
+        list: Array
     }
 }
 </script>

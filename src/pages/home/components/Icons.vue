@@ -17,52 +17,14 @@
 <script>
 export default {
     name: 'homeIcons',
-    data (){
-        return{
-            iconList:[{
-                id : '001',
-                imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/hotel.png',
-                desc: '酒店酒店酒店酒店'
-            }, {
-                id : '002',
-                imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/flight.png',
-                desc: '机票'
-            }, {
-                id : '003',
-                imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/package.png',
-                desc: '度假'
-           }, {
-                id : '004',
-                imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/train.png',
-                desc: '火车票'
-           }, {
-                id : '005',
-                imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/piao.png',
-                desc: '景点'
-           }, {
-                id : '006',
-                imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/bus.png',
-                desc: '特惠'
-           }, {
-                id : '007',
-                imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/bargainflight.png',
-                desc: '低价机票'
-           }, {
-                id : '008',
-                imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/inn.png',
-                desc: '客栈',
-           }, {
-                id : '009',
-                imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/travel.png',
-                desc: '攻略'
-           }
-        ]}
+    props:{
+        list : Array
     },
     computed : {
         pages (){
             const pages = [];
             
-            this.iconList.forEach((item,index)=>{
+            this.list.forEach((item,index)=>{
                 const page =Math.floor(index/8);
                 if(!pages[page]){
                     pages[page]=[]
