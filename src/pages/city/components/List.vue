@@ -69,13 +69,13 @@ export default {
             this.$router.push('/')
         },
         ...mapMutations(['changeCity'])
-    }
-    // computed: {
-    //     ...mapState({
-    //         currentCity:'city'
-    //     })
-        //把vuex中的公用数据city映射到计算属性的currentCity中
-    // }    
+    },
+    computed: {
+        ...mapState({
+            currentCity:'city'
+        })
+        // 把vuex中的公用数据city映射到计算属性的currentCity中
+    }    
 }
 </script>
 
