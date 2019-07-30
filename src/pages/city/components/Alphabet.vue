@@ -1,7 +1,13 @@
 <template>
     <div>
         <ul class="list">
-            <li class="item" v-for="(item,key) of city" :key="key">{{key}}</li>
+            <li class="item" 
+                v-for="(item,key) of city"
+                :key="key"
+                @click="handleLetterClick"
+             >
+                {{key}}
+            </li>
 
         </ul>
     </div>
@@ -12,7 +18,12 @@ export default {
     name : 'CityAlphabet',
     props: {
         city : Object
-    }  
+    },
+    methods: {
+        handleLetterClick (e){
+            this.$emit('change',e.target.innertext)
+        }
+    } 
 }
 </script>
 
