@@ -6,7 +6,8 @@
       <div class="header-input"><span class="iconfont">&#xe632;</span>输入城市/景点/游玩主题</div>
       <router-link to='/city'>
         <div class="header-right">
-          {{this.city}}
+          {{this.currentCity}} 
+          <!-- vuex公共数据的使用this.$store.state.city -->
           <span class="iconfont">&#xe64a;</span>
         </div>
       </router-link>
@@ -15,10 +16,17 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
     name:'homeHeader',
     props :{
         city : String
+    },
+    computed: {
+        ...mapState({
+            currentCity:'city'
+        })
+        //把vuex中的公用数据city映射到计算属性的currentCity中
     }
 }
 </script>
@@ -35,7 +43,8 @@ export default {
         float: left
         text-align : center 
     .header-right
-        width: 1.24rem
+        min-width: 1.04rem
+        padding: 0 .1rem
         float:right
         text-align: center
         color: white

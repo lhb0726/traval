@@ -1,6 +1,6 @@
 <template>
   <div>
-    <home-header :city="city"></home-header> 
+    <home-header ></home-header> 
     <!-- 父组件通过属性的形式给子组件传值 -->
     <home-swiper :list="swiperList"></home-swiper>
     <home-icons :list="iconList"></home-icons>
@@ -28,7 +28,6 @@ export default {
     },
     data (){
       return {
-        city : '',
         swiperList : [],
         iconList : [],
         recommendList : [],
@@ -43,7 +42,6 @@ export default {
       getHomeSucc(res) {
         res=res.data;
         if (res.ret&&res.data) {
-          this.city=res.data.city
           this.swiperList=res.data.swiperList
           this.iconList=res.data.iconList
           this.recommendList=res.data.recommendList
