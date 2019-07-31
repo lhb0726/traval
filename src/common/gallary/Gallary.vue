@@ -1,13 +1,14 @@
 <template>
     <div>
-        <div class="container">
+        <div class="container" @click="handleGallaryClick">
             <div class="wrapper">
-                <swiper :options="swiperOption" v-if="list.length">
-                    <swiper-slide  v-for="item of list" :key="item.id">
-                        <img class="swiper-img" :src="item.imgUrl" >
+                <swiper :options="swiperOptions" >
+                    <swiper-slide  v-for="(item , index) in imgs" :key="index" >
+                        <img class="gallary-img" :src="item" >
                     </swiper-slide>
                     <div class="swiper-pagination"  slot="pagination"></div>
-                </swiper>  
+                </swiper>
+
             </div>
         </div>
     </div>
@@ -15,11 +16,37 @@
 
 <script>
 export default {
-    name: 'CommonGallary'
+    name: 'CommonGallary',
+    data(){
+        return {
+            swiperOptions: {
+                pagination: '.swiper-pagination',
+                paginationType: 'fraction',
+                observeParents: true,
+                observer: true,
+            }
+        }
+    },
+    props: {
+        imgs: {
+            type: Array,
+            default (){
+                return []
+            }
+        }
+    },
+    methods: {
+        handleGallaryClick (){
+            this.$emit('close')
+        }
+    }
 }
 </script>
 
 <style lang="stylus"  scoped>
+.container >>> .swiper-container
+    overflow : inherit
+
 .container
     display:flex
     flex-direction: column
@@ -34,7 +61,11 @@ export default {
     .wrapper
         width:100%
         height: 0
-        overflow: hidden
         padding-bottom: 100%
+        .gallary-img
+            width: 100%
+        .swiper-pagination
+            color: #fff
+            bottom: -1rem
 
 </style>

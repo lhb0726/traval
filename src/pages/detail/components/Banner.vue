@@ -1,6 +1,6 @@
-<template>wo
+<template>
     <div>
-        <div class="banner">
+        <div class="banner" @click="handleBannerClick">
             <img 
                 class="banner-img"
                 src="http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_710x360_7486df6c.jpg"
@@ -10,18 +10,33 @@
                  <div class="banner-number">39</div>
              </div>
         </div>
-        <common-gallary></common-gallary>
-    </div>
+        <common-gallary :imgs="imgs" v-show="showGallary" @close="handleClose"></common-gallary>
+    </div> 
     <!-- banner样式中的paddingbottom是为了防止加载是页面抖动设置的 -->
 </template>
 
 <script>
-import CommonGallaxy from '@/common/gallary/Gallary.vue'
+import CommonGallary from '@/common/gallary/Gallary.vue';
 export default {
     name: "DetailBanner",
     components: {
         CommonGallary,
-    } 
+    },
+    data () {
+        return {
+            imgs: ['http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_710x360_7486df6c.jpg',
+                   'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_710x360_7486df6c.jpg'],
+            showGallary: false,       
+        }
+    },
+    methods: {
+        handleBannerClick () {
+            this.showGallary= true  
+        },
+        handleClose () {
+            this.showGallary=false
+        }
+    }
 }
 </script>
 
@@ -41,7 +56,7 @@ export default {
         line-height : .9rem
         display: flex
         color:#eee
-        background-image : linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.8))
+        background-image : linear-gradient(to top,rgba(0,0,0,0),rgba(0,0,0,0.8))
         .banner-title
             flex: 1
             font-size:.32rem
