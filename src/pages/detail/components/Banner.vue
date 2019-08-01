@@ -10,17 +10,22 @@
                  <div class="banner-number">{{this.bannerImgs.length}}</div>
              </div>
         </div>
-        <common-gallary :imgs="bannerImgs" v-show="showGallary" @close="handleClose"></common-gallary>
+        <fade-animation>
+            <common-gallary :imgs="bannerImgs" v-show="showGallary" @close="handleClose"></common-gallary>
+        </fade-animation>
+        
     </div> 
     <!-- banner样式中的paddingbottom是为了防止加载是页面抖动设置的 -->
 </template>
 
 <script>
 import CommonGallary from '@/common/gallary/Gallary.vue';
+import FadeAnimation from '@/common/fade/FadeAnimation.vue';
 export default {
     name: "DetailBanner",
     components: {
         CommonGallary,
+        FadeAnimation,
     },
     data () {
         return {
