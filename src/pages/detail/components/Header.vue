@@ -58,6 +58,7 @@ export default {
     line-height: .8rem
     color: #fff
 .header-fixed
+    z-index: 99  
     position: fixed 
     top:0
     left:0
